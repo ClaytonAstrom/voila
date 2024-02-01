@@ -62,7 +62,7 @@ export const widgetManager: JupyterFrontEndPlugin<IJupyterWidgetRegistry> = {
     if (!model) {
       return {
         registerWidget(data: IWidgetRegistryData): void {
-          throw Error(`The model for kernel id ${kernelId} does not exist`);
+          // throw Error(`The model for kernel id ${kernelId} does not exist`);
         }
       };
     }
