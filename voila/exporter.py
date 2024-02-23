@@ -160,7 +160,9 @@ class VoilaExporter(HTMLExporter):
             static_url=self.static_url,
             page_config=page_config,
         ):
+            self.log(f"generate_from_notebook_node output before yield: {output}")
             yield (output, resources)
+            self.log(f"generate_from_notebook_node output after yield: {output}")
 
     @property
     def environment(self):
