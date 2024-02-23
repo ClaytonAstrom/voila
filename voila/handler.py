@@ -241,7 +241,7 @@ class VoilaHandler(BaseVoilaHandler):
                 async for html_snippet, _ in gen.generate_content_generator(
                     kernel_id, kernel_future
                 ):
-                    self.log(f"Snippet: {html_snippet}")
+                    self.log.info(f"Snippet: {html_snippet}")
                     await queue.put(html_snippet)
 
                 await queue.put(None)
@@ -259,7 +259,7 @@ class VoilaHandler(BaseVoilaHandler):
                 except asyncio.TimeoutError:
                     yield time_out()
                 else:
-                    self.log(f"HTML snippet in else: {html_snippet}")
+                    self.log.info(f"HTML snippet in else: {html_snippet}")
                     if html_snippet is None:
                         break
                     yield html_snippet
